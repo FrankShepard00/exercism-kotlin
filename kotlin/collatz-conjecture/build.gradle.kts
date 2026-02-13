@@ -15,7 +15,10 @@ dependencies {
     testImplementation(kotlin("test-junit"))
 }
 
-tasks.withType<Test> {
+
+tasks.test {
+    useJUnit()
+
     testLogging {
         exceptionFormat = TestExceptionFormat.FULL
         events("passed", "failed", "skipped")
