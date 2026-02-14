@@ -1,16 +1,11 @@
 object CollatzCalculator {
     fun computeStepCount(start: Int): Int {
+        require(start > 0) { "Solo números positivos son permitidos" }
         var steps = 0
-        require(start > 0) { "upsi" }
-        var numero = start
-        while (numero != 1) {
-            if (numero % 2 == 0){
-                numero /= 2
-                steps++
-            } else {
-                numero = numero * 3 + 1
-                steps++
-            }
+        var  valorActual = start
+        while (valorActual != 1) {
+            valorActual = if (valorActual % 2 == 0) valorActual / 2 else valorActual * 3 + 1
+            steps++
         }
         return steps
     }
